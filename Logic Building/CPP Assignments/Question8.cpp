@@ -1,0 +1,58 @@
+/*
+ * Question8.cpp
+ *
+ *  Created on: 29-Aug-2026
+ *      Author: user
+ */
+
+
+
+
+#include <iostream>
+using namespace std;
+
+bool parsePacket(const int* rawData, int size,
+                 int** outMin, int** outMax)
+{
+
+    if (size <= 0)
+    {
+        return false;
+    }
+
+
+    *outMin = const_cast<int*>(&rawData[0]);
+    *outMax = const_cast<int*>(&rawData[0]);
+
+
+    for (int i = 1; i < size; i++)
+    {
+        if (rawData[i] < **outMin)
+        {
+            *outMin = const_cast<int*>(&rawData[i]);
+        }
+
+        if (rawData[i] > **outMax)
+        {
+            *outMax = const_cast<int*>(&rawData[i]);
+        }
+    }
+
+    return true;
+}
+
+int main8()
+{
+    int packet[] = {45, 12, 67, 8, 55, 31};
+
+    int* minPtr = nullptr;
+    int* maxPtr = nullptr;
+
+    if (parsePacket(packet, 6, &minPtr, &maxPtr))
+    {
+        cout << "Calibration Min : " << *minPtr << endl;
+        cout << "Calibration Max : " << *maxPtr << endl;
+    }
+
+    return 0;
+}
