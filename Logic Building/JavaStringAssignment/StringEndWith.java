@@ -1,0 +1,17 @@
+
+public class StringEndWith {
+
+	public static void main(String[] args) {
+	
+		
+		String str1="Python Exercises";
+		String str2 = "se";
+		System.out.println("\"" + str1 + "\" ends with \"" + str2 + "\"? " + str1.endsWith(str2));
+		
+		
+		// endwith() gives boolean values 
+		str1 = "Python Exercise";
+		
+		System.out.println("\"" + str1 + "\" ends with \"" + str2 + "\"? " + str1.endsWith(str2));
+	}
+}
